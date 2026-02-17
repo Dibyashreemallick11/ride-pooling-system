@@ -1,0 +1,15 @@
+package com.airport.pooling.repository;
+
+import com.airport.pooling.entity.Cab;
+import com.airport.pooling.entity.CabStatus;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface CabRepository extends JpaRepository<Cab, Long> {
+
+    List<Cab> findByStatus(CabStatus status);
+    Optional<Cab> findFirstByStatus(CabStatus status);
+
+}
